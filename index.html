@@ -6,15 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="my-paragraph.js"></script>
 </head>
 
 <body>
     <section>
-        
+        <!-- <template id="my-paragraph">
+            <style>
+                p {
+                    color: white;
+                    background-color: #666;
+                    padding: 5px;
+                }
+            </style>
+            <p>
+            <h1>My Title</h1>
+            <h2>My description</h2>
+            </p>
+        </template> -->
+
         <div id="kunstDiv" class="item"></div>
         <div id="videoDiv" class="item"></div>
         <div id="gameDiv" class="item"></div>
         <div id="demo"></div>
+        <my-paragraph id="one"></my-paragraph>
     </section>
 
     <script>
@@ -52,12 +67,21 @@
 
         getTitle(title);
 
-        function insertText(myTitle){
+        function insertText(myTitle) {
             let items = document.getElementsByClassName("item");
-for(let i = 0; i < items.length; i++){
-    items[i].innerHTML = myTitle[i].name + " + " + myTitle[i].desc;
-}
+            for (let i = 0; i < items.length; i++) {
+                items[i].innerHTML = myTitle[i].name + " + " + myTitle[i].desc;
+            }
         };
+
+        template = "template.html";
+
+async function getTemplate(template) {
+    let tempObj = await fetch(template);
+    let tempTitle = await tempObj.json();
+    document.getElementById("demo").innerHTML = tempTitle[1].name;
+    
+};
 
     </script>
 </body>
