@@ -10,9 +10,9 @@
 
 <body>
     <section>
-        <div id="kunstDiv"></div>
-        <div id="videoDiv"></div>
-        <div id="gameDiv"></div>
+        <div id="kunstDiv" class="item"></div>
+        <div id="videoDiv" class="item"></div>
+        <div id="gameDiv" class="item"></div>
         <div id="demo"></div>
     </section>
 
@@ -52,9 +52,9 @@
         getTitle(title);
 
         function insertText(myTitle){
-            let divArray = document.querySelectorAll("div");
-for(let i = 0; i < divArray.length; i++){
-    divArray[i].innerHTML = myTitle[i].name + " + " + myTitle[i].desc;
+            let items = document.getElementsByClassName("item");
+for(let i = 0; i < items.length; i++){
+    items[i].innerHTML = myTitle[i].name + " + " + myTitle[i].desc;
 }
         };
 
