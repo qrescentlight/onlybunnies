@@ -42,21 +42,17 @@
 
         title = "items.json";
 
-        async function getTitle(title) {
+        async function getTitle(title, i) {
             let myObj = await fetch(title);
             let myTitle = await myObj.json();
-            // document.getElementById("demo").innerHTML = myTitle[1].name;
-            insertText(myTitle)
+            document.getElementById("demo").innerHTML = myTitle[1].name;
+            // insertText();
         };
 
-        getTitle(title);
-
-        function insertText(myTitle){
-            let divArray = document.querySelectorAll("div");
-for(let i = 0; i < divArray.length; i++){
-    divArray[i].innerHTML = myTitle[i].name + " + " + myTitle[i].desc;
-}
-        };
+        // getTitle(title);
+        // function insertText() {
+        //     for(let i = 0; )
+        // };
 
     </script>
 </body>
